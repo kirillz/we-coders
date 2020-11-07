@@ -167,8 +167,9 @@ use Bitrix\Main\Page\Asset;
                                         </li>
                                     </ul>
                                 </li>
-                                <li>                                    <a href="portfolio.html">Портфолио</a>                                </li>
-
+                                <li>
+                                    <a href="portfolio.html">Портфолио</a>
+                                </li>
                                 <li>
                                     <a href="blog.html">Блог</a>
                                 </li>
