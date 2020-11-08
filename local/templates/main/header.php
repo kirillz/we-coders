@@ -65,32 +65,44 @@ use Bitrix\Main\Page\Asset;
 <![endif]-->
 
 <!-- Линия с контактами -->
-<div class="header-top-area bg-color ptb-10 hidden-xs">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-sm-6">
-                <div class="welcome">
-                    <span><i class="fa fa-envelope"></i> admin@domain.com</span>
-                    <span><i class="fa fa-phone"></i> +012 345 6789</span>
+<?php if ($APPLICATION->GetCurDir() !== '/'): ?>
+    <div class="header-top-area bg-color ptb-10 hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="welcome">
+                        <span>
+                            <? $APPLICATION->IncludeComponent("bitrix:main.include", "", [
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH"           => SITE_TEMPLATE_PATH . "/includes/header_email.php",
+                            ]); ?>
+                        </span>
+                        <span>
+                            <? $APPLICATION->IncludeComponent("bitrix:main.include", "", [
+                                "AREA_FILE_SHOW" => "file",
+                                "PATH"           => SITE_TEMPLATE_PATH . "/includes/header_phone.php",
+                            ]); ?>
+                        </span>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-                <div class="social-icon-header text-right">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
+                <div class="col-md-6 col-sm-6">
+                    <div class="social-icon-header text-right">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-youtube"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
 <!-- Шапка сайта (меню) -->
-<header id="sticky-header" class="header-area header-wrapper white-bg">
+<header id="sticky-header" class="header-area header-wrapper <?= $APPLICATION->GetCurDir() === '/' ? 'transparent-header': 'white-bg'; ?> ">
     <!-- Меню (для десктопа) -->
     <div class="header-middle-area full-width">
         <div class="container">
@@ -105,30 +117,21 @@ use Bitrix\Main\Page\Asset;
                         </div>
                     </div>
 
-
                     <div class="col-md-10 col-sm-9 col-xs-4 text-right dark-menu">
                         <!-- Меню (основное) -->
-                        <?$APPLICATION->IncludeComponent(
-                            "bitrix:menu",
-                            "top_menu",
-                            array(
-                                "ALLOW_MULTI_SELECT" => "N",
-                                "CHILD_MENU_TYPE" => "left",
-                                "COMPOSITE_FRAME_MODE" => "A",
-                                "COMPOSITE_FRAME_TYPE" => "AUTO",
-                                "DELAY" => "N",
-                                "MAX_LEVEL" => "2",
-                                "MENU_CACHE_GET_VARS" => array(
-                                ),
-                                "MENU_CACHE_TIME" => "3600",
-                                "MENU_CACHE_TYPE" => "N",
-                                "MENU_CACHE_USE_GROUPS" => "N",
-                                "ROOT_MENU_TYPE" => "top",
-                                "USE_EXT" => "N",
-                                "COMPONENT_TEMPLATE" => "top_menu"
-                            ),
-                            false
-                        );?>
+                        <? $APPLICATION->IncludeComponent("bitrix:menu", "top_menu", [
+                            "ALLOW_MULTI_SELECT"    => "N",
+                            "CHILD_MENU_TYPE"       => "subtop",
+                            "DELAY"                 => "N",
+                            "MAX_LEVEL"             => "2",
+                            "MENU_CACHE_GET_VARS"   => [],
+                            "MENU_CACHE_TIME"       => "3600",
+                            "MENU_CACHE_TYPE"       => "N",
+                            "MENU_CACHE_USE_GROUPS" => "N",
+                            "ROOT_MENU_TYPE"        => "top",
+                            "USE_EXT"               => "Y",
+                            "COMPONENT_TEMPLATE"    => "top_menu",
+                        ], false); ?>
 
                         <!-- Поиск -->
                         <div class="header-right">
@@ -202,6 +205,7 @@ use Bitrix\Main\Page\Asset;
 </header>
 
 <!-- Хлебные крошки (навигация) -->
+<?php if ($APPLICATION->GetCurDir() !== '/'): ?>
 <div class="breadcrumb-area brand-bg ptb-100">
     <div class="container width-100">
         <div class="row z-index">
@@ -225,3 +229,4 @@ use Bitrix\Main\Page\Asset;
         </div>
     </div>
 </div>
+<?php endif; ?>

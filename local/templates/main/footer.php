@@ -1,4 +1,4 @@
-<?php
+<?
 if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
     die();
 ?>
@@ -13,7 +13,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                         <!-- Лого + текст -->
                         <div class="footer-logo">
                             <a href="#">
-                                <img src="img/logo/logo-white.png" alt=""/>
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/assets/img/logo/logo-white.png" alt=""/>
                             </a>
                         </div>
                         <p>Если вы похожи на большинство компаний, у вас нет маркетингового бюджета в миллион
@@ -41,40 +41,26 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-12">
                     <div class="copyright white-text">
-                        <p>We Coders © 2020</p>
+                        <p>We Coders © 2018</p>
                     </div>
                 </div>
 
-
-                <!-- Нижнее меню bottom_menu -->
-                <?$APPLICATION->IncludeComponent(
-                    "bitrix:menu",
-                    "bottom_menu",
-                    array(
-                        "ALLOW_MULTI_SELECT" => "N",
-                        "COMPOSITE_FRAME_MODE" => "A",
-                        "COMPOSITE_FRAME_TYPE" => "AUTO",
-                        "DELAY" => "N",
-                        "MAX_LEVEL" => "1",
-                        "MENU_CACHE_GET_VARS" => array(
-                        ),
-                        "MENU_CACHE_TIME" => "3600",
-                        "MENU_CACHE_TYPE" => "N",
-                        "MENU_CACHE_USE_GROUPS" => "N",
-                        "ROOT_MENU_TYPE" => "bottom",
-                        "USE_EXT" => "N",
-                        "COMPONENT_TEMPLATE" => "bottom_menu"
-                    ),
-                    false
-                );?>
-
+                <? $APPLICATION->IncludeComponent("bitrix:menu", "bottom_menu", [
+                    "ALLOW_MULTI_SELECT"    => "N",
+                    "DELAY"                 => "N",
+                    "MAX_LEVEL"             => "1",
+                    "MENU_CACHE_GET_VARS"   => [],
+                    "MENU_CACHE_TIME"       => "3600",
+                    "MENU_CACHE_TYPE"       => "N",
+                    "MENU_CACHE_USE_GROUPS" => "N",
+                    "ROOT_MENU_TYPE"        => "bottom",
+                    "USE_EXT"               => "N",
+                    "COMPONENT_TEMPLATE"    => "bottom_menu",
+                ], false); ?>
             </div>
         </div>
     </div>
 </footer>
 
-
-
 </body>
 </html>
-
