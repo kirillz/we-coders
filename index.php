@@ -8,7 +8,7 @@ $APPLICATION->SetPageProperty('title', 'Digital агентство We coders');
 <?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"mainpage_top_slider",
-	array(
+	[
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -28,16 +28,14 @@ $APPLICATION->SetPageProperty('title', 'Digital агентство We coders');
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "N",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
+		"FIELD_CODE" => [
 			0 => "NAME",
 			1 => "PREVIEW_TEXT",
-			2 => "PREVIEW_PICTURE",
-			3 => "DETAIL_TEXT",
-			4 => "",
-		),
+			2 => "DETAIL_TEXT",
+        ],
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "3",
+		"IBLOCK_ID" => getIblockIdByCode('main_slider'),
 		"IBLOCK_TYPE" => "content",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -53,10 +51,10 @@ $APPLICATION->SetPageProperty('title', 'Digital агентство We coders');
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
+		"PROPERTY_CODE" => [
 			0 => "LINK",
 			1 => "",
-		),
+        ],
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -72,7 +70,7 @@ $APPLICATION->SetPageProperty('title', 'Digital агентство We coders');
 		"COMPONENT_TEMPLATE" => "mainpage_top_slider",
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO"
-	),
+    ],
 	false
 ); ?>
 
