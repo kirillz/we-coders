@@ -13,20 +13,20 @@
 $this->setFrameMode(true);
 ?>
 
-<?php if(!empty($arResult["ITEMS"])) : ?>
-<section class="project-count-area brand-bg pad-90">
-    <div class="container">
-        <div class="row">
-        <?php foreach ($arResult["ITEMS"] as $arItem): ?>
-            <div class="col-md-3 col-sm-3">
-                <div class="single-count white-text text-center">
-                    <?= isset($arItem['DETAIL_TEXT']) ? $arItem['DETAIL_TEXT'] : ''; ?>
-                    <h2 class="counter"><?= isset($arItem['PREVIEW_TEXT']) ? $arItem['PREVIEW_TEXT'] : ''; ?></h2>
-                    <p><?= isset($arItem['NAME']) ? $arItem['NAME'] : ''; ?></p>
-                </div>
+<?php if (!empty($arResult["ITEMS"])): ?>
+    <section class="project-count-area brand-bg pad-90">
+        <div class="container">
+            <div class="row">
+                <?php foreach ($arResult["ITEMS"] as $arItem): ?>
+                    <div class="col-md-3 col-sm-3">
+                        <div class="single-count white-text text-center">
+                            <?= isset($arItem['DETAIL_TEXT']) ? $arItem['DETAIL_TEXT'] : ''; ?>
+                            <h2 class="counter"><?= isset($arItem['PREVIEW_TEXT']) ? $arItem['PREVIEW_TEXT'] : ''; ?></h2>
+                            <p><?= isset($arItem['NAME']) ? $arItem['NAME'] : ''; ?></p>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
-        <?php endforeach; ?>
         </div>
-    </div>
-</section>
+    </section>
 <?php endif; ?>
